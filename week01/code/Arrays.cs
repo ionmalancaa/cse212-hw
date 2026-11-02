@@ -9,11 +9,18 @@ public static class Arrays
     public static double[] MultiplesOf(double number, int length)
     {
         // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // I created an empty list of doubles to hold the multiples of the number. 
+        // I then created a for loop that will iterate from 1 to the length of the array. 
+        // In each iteration, I multiply the number by the current index and add it to the list. 
+        // Finally, I converted the list to an array and returned it.
 
-        return []; // replace this return statement with your own
+        List<double> multiples = new List<double>();
+        for (int i = 1; i <= length; i++)
+        {
+            multiples.Add(number * i);
+        }
+
+        return multiples.ToArray();
     }
 
     /// <summary>
@@ -26,8 +33,12 @@ public static class Arrays
     public static void RotateListRight(List<int> data, int amount)
     {
         // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // I copied the last "amount" items from the list into "temp".
+        // I removed those items from the end of the list.
+        // I added them to the front of the list, so the list is rotated right.
+        
+        var temp = data.GetRange(data.Count - amount, amount);
+        data.RemoveRange(data.Count - amount, amount);
+        data.InsertRange(0, temp);
     }
 }
